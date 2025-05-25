@@ -25,6 +25,7 @@ func _ready() -> void:
 		deactivate_pipe(pipe)
 
 		add_child(pipe)
+		pipe.add_to_group("pipes")
 		pipe_pool.append(pipe)
 	
 	spawner()

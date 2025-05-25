@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://br8p586iokk8a"]
+
+[ext_resource type="Script" uid="uid://bh43orq4df7fp" path="res://ui/hud.gd" id="1_jun1y"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_jun1y")
+
+[node name="Score_Text" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 20.0
+offset_right = -26.0
+offset_bottom = 43.0
+grow_horizontal = 0
+theme_type_variation = &"HeaderLarge"
+text = "999"
+horizontal_alignment = 2
+
+[node name="GameTime_Text" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 53.0
+offset_right = -26.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_type_variation = &"TooltipLabel"
+text = "10:21"
+horizontal_alignment = 2

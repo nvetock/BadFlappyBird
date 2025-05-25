@@ -11,8 +11,6 @@ var top_pipe_max_y: float = -130.0
 var bot_pipe_min_y: float = 100.0
 var bot_pipe_max_y: float = 130.0
 
-signal pipe_cleared
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$PassThrough.body_entered.connect(_on_pass_through)
@@ -31,4 +29,6 @@ func randomize_pipe_pass_through() -> void:
 
 
 func _on_pass_through(body: Node2D) -> void:
-	pipe_cleared.emit()
+	if body.is_in_group("player"):
+		$AudioPassThrough.play()
+		GameManager.update_score(1)
