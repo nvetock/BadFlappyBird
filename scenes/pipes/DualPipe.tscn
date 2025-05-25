@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfe4am5gvl74j"]
+
+[ext_resource type="Script" uid="uid://bpc3tg10mg2ue" path="res://scenes/pipes/dual_pipe.gd" id="1_1wuxj"]
+[ext_resource type="Texture2D" uid="uid://dpdn3dqddc6x6" path="res://resources/pipe.png" id="1_e4wft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wuxj"]
+size = Vector2(8, 256)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1wuxj")
+
+[node name="Pipe_Top" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(1, -1)
+texture = ExtResource("1_e4wft")
+
+[node name="Pipe_Bot" type="Sprite2D" parent="."]
+position = Vector2(0, 100)
+texture = ExtResource("1_e4wft")
+
+[node name="PassThrough" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassThrough"]
+shape = SubResource("RectangleShape2D_1wuxj")
