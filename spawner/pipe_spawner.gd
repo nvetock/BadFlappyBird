@@ -18,19 +18,30 @@ var clocktest := 0
 func _ready() -> void:
 	spawn_point = Vector2(scene_size.x, scene_size.y / 2)
 	
+	instantiate_object_pool()
+	initialize_spawner()
+
+
+func instantiate_object_pool() -> void:
 	for i in range(pipe_amount):
 		var pipe = pipe_object.instantiate()
 
 		assert(pipe != null)
 		deactivate_pipe(pipe)
-
+		
+		#add scene as child to spawner node
 		add_child(pipe)
+		
+		# connect collision signaling
+		#pipe.setup_signal_connection()
+		
+		# add to pipes group
 		pipe.add_to_group("pipes")
+		
+		# add object to pool array
 		pipe_pool.append(pipe)
-	
-	spawner()
 
-func spawner() -> void:
+func initialize_spawner() -> void:
 	spawn_clock.start()
 	while clocktest <= 20:
 		await spawn_clock.timeout

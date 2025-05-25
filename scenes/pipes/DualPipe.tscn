@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfe4am5gvl74j"]
 
 [ext_resource type="Script" uid="uid://bpc3tg10mg2ue" path="res://scenes/pipes/dual_pipe.gd" id="1_1wuxj"]
-[ext_resource type="Texture2D" uid="uid://dpdn3dqddc6x6" path="res://resources/pipe.png" id="1_e4wft"]
+[ext_resource type="PackedScene" uid="uid://coalguc464gxn" path="res://scenes/pipes/Pipe.tscn" id="2_v4iek"]
 [ext_resource type="AudioStream" uid="uid://eobvf8jsmu5w" path="res://resources/coin.wav" id="3_v4iek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wuxj"]
@@ -10,14 +10,12 @@ size = Vector2(8, 256)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1wuxj")
 
-[node name="Pipe_Top" type="Sprite2D" parent="."]
+[node name="Pipe_Top" parent="." instance=ExtResource("2_v4iek")]
 position = Vector2(0, -100)
 scale = Vector2(1, -1)
-texture = ExtResource("1_e4wft")
 
-[node name="Pipe_Bot" type="Sprite2D" parent="."]
+[node name="Pipe_Bot" parent="." instance=ExtResource("2_v4iek")]
 position = Vector2(0, 100)
-texture = ExtResource("1_e4wft")
 
 [node name="PassThrough" type="Area2D" parent="."]
 
