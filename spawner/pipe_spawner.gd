@@ -1,9 +1,9 @@
 extends Node
 
 
-var pipe_pool: Array[Node2D] = []
 @export var pipe_amount: int = 8
-
+var pipe_pool: Array[Node2D] = []
+var pipe_y_spawn_variance: float = 50.0
 
 var clocktest := 0
 
@@ -20,20 +20,37 @@ func _ready() -> void:
 	
 	for i in range(pipe_amount):
 		var pipe = pipe_object.instantiate()
+
 		assert(pipe != null)
-		
+		deactivate_pipe(pipe)
+
+		add_child(pipe)
 		pipe_pool.append(pipe)
 	
 	spawner()
 
 func spawner() -> void:
 	spawn_clock.start()
-	while clocktest <= 4:
+	while clocktest <= 20:
 		await spawn_clock.timeout
 		print("Clock loop" + str(clocktest + 1))
 		
-		var p = pipe_pool.pop_front()
-		p.global_position = spawn_point
-		add_child(p)
+		activate_pipe()
 		
 		clocktest += 1
+
+func deactivate_pipe(p: Node2D) -> void:
+	p.global_position = Vector2(spawn_point.x + 32, spawn_point.y + randf_range(-pipe_y_spawn_variance, pipe_y_spawn_variance))
+	p.visible = false
+
+func activate_pipe() -> void:
+	for pipe in pipe_pool:
+		if pipe.visible:
+			continue
+		pipe.visible = true
+		pipe.randomize_pipe_pass_through()
+		return
+
+func return_to_pool(pipe: Node2D) -> void:
+	deactivate_pipe(pipe)
+	print("returned to pool")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8nly41gsn7e0"]
+[gd_scene load_steps=4 format=3 uid="uid://b8nly41gsn7e0"]
 
 [ext_resource type="PackedScene" uid="uid://cwbk6yye46ud3" path="res://entities/player/Player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://bi6u7fqc1dhix" path="res://scenes/main/GameManager.gd" id="1_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://bfe4am5gvl74j" path="res://scenes/pipes/DualPipe.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://kv0t4ayd111g" path="res://spawner/PipeSpawner.tscn" id="2_l3cfh"]
 
 [node name="Main" type="Node"]
@@ -21,6 +20,3 @@ color = Color(0.0845415, 0.171607, 0.210465, 1)
 [node name="Player" parent="." instance=ExtResource("1_hyk8p")]
 position = Vector2(165, 87)
 metadata/_edit_group_ = true
-
-[node name="Node2D" parent="." instance=ExtResource("2_iuonh")]
-position = Vector2(511, 115)
