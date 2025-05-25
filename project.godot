@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="4_Challenge-Flappy_Bird"
-run/main_scene="uid://b8nly41gsn7e0"
+run/main_scene="uid://dnadihlsp8ham"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://globals/GameManager.gd"
+SceneManager="*res://globals/SceneManager.gd"
+SaveManager="*res://globals/SaveManager.gd"
 
 [display]
 
