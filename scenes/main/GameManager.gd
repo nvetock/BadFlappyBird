@@ -1,15 +1,27 @@
 extends Node
 
-var pipe_pool: Array[PackedScene] = []
+var score: int = 0
+var game_time: int = 0
 
-
-@onready var pipe_object := preload("res://scenes/pipes/DualPipe.tscn")
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func start_game() -> void:
+	pass
+
+func restart_game() -> void:
+	score = 0
+	game_time = 0
+
+func pause_game() -> void:
+	pass
+
+func quit_game() -> void:
+	pass
+
+func save_game() -> bool:
+	return false
