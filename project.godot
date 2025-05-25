@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="4_Challenge-Flappy_Bird"
+run/main_scene="uid://b8nly41gsn7e0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
 
 [input]
 

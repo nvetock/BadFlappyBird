@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwbk6yye46ud3"]
+[gd_scene load_steps=5 format=3 uid="uid://cwbk6yye46ud3"]
 
 [ext_resource type="Script" uid="uid://d167dt1hymjd5" path="res://entities/player/player.gd" id="1_mab2k"]
+[ext_resource type="AudioStream" uid="uid://bih55t3os0lg1" path="res://resources/wing_flap.wav" id="2_453mm"]
+[ext_resource type="Texture2D" uid="uid://hjaajvb3gvh5" path="res://resources/bird_2.png" id="2_l3c03"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_453mm"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="RigidBody2D"]
+mass = 5.0
+gravity_scale = 0.5
 script = ExtResource("1_mab2k")
+flap_strength = 225
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_l3c03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_453mm")
+
+[node name="AudioWingFlap" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_453mm")
+volume_db = -5.0
